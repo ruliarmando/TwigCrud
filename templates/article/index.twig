@@ -1,0 +1,32 @@
+{% extends "base.twig" %}
+
+{% block title %} {{ pageTitle }} {% endblock %}
+
+{% block content %}
+    <table class="table table-condensed table-striped table-bordered" id="datagrid">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Summary</th>
+                <th>Author</th>
+                <th>Timestamp</th>
+                <th>Viewed</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in articles %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ a.title }}</td>
+                    <td>{{ a.summary }}</td>
+                    <td>{{ a.author }}</td>
+                    <td>{{ a.timestamp|date("Y-m-d") }}</td>
+                    <td>{{ a.view }} times</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <hr>
+{% endblock %}
+
