@@ -7,20 +7,16 @@
  */
 
 //ganti ini sesuai folder dimana aplikasi berada
-define('BASE_URL', '/test/TwigCrud');
+define('BASE_URL', '/test/TwigCrud/');
 
 require_once 'incs/twig_init.php';
 require_once 'incs/db.php';
 require_once 'incs/autoloader.php';
+require_once 'incs/dispatcher.php';
 
-if(isset($_SERVER['PATH_INFO'])){
-    $r = explode('/', $_SERVER['PATH_INFO']);
-}else{
-    $r = array();
-}
+$dispatcher = new Dispatcher;
+$controller = $dispatcher->controller ? $dispatcher->controller : 'index';
+$action = $dispatcher->action ? $dispatcher->action : 'index';
 
-$c = isset($r[1]) && $r[1] ? htmlspecialchars($r[1]) : 'index';
-$a = isset($r[2]) && $r[2] ? htmlspecialchars($r[2]) : 'index';
-
-$path = "controllers/{$c}.php";
+$path = "controllers/{$controller}.php";
 if(is_readable($path)) require $path; else echo 'Not Found';

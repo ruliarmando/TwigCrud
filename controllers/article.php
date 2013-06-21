@@ -6,7 +6,7 @@
  * Time: 11:38
  */
 
-switch($a){
+switch($action){
     case 'index':
         $articles = ORM::for_table('article')->find_many();
         render('article/index.twig', array('pageTitle'=>'Article-Index', 'articles'=>$articles));
@@ -14,7 +14,7 @@ switch($a){
     case 'add':
         $article = ORM::for_table('article')->create();
         if(isset($_POST['Article'])){
-
+            
         }
         render('article/add.twig', array('pageTitle'=>'Article-Add', 'article'=>$article));
 }

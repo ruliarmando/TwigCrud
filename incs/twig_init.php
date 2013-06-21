@@ -24,7 +24,7 @@ $twig = new Twig_Environment($loader, array(
 $twig->addGlobal('base_url', BASE_URL);
 
 $url_func = new Twig_SimpleFunction('url', function($route){
-    return BASE_URL.'/index.php/'.$route;
+    return BASE_URL.$route;
 });
 $twig->addFunction($url_func);
 
