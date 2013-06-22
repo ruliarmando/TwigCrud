@@ -5,7 +5,14 @@
  * Date: 09/06/13
  * Time: 8:41
  */
-
-render('index.twig', array(
-    'pageTitle'=>'Index Controller',
-));
+switch($action){
+	case 'index':        
+        render('index.twig', array(
+            'pageTitle'=>'Index Controller',
+        ));
+		break;
+    case 'login':
+        echo 'login';
+	default:
+        break;
+}
