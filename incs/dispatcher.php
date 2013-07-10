@@ -6,9 +6,11 @@ class Dispatcher{
     
     public function __construct(){
         if(isset($_SERVER['PATH_INFO'])){
+            // jika menggunakan PATH_INFO
             $path = (substr($_SERVER['PATH_INFO'], -1) == "/") ? 
                 substr($_SERVER['PATH_INFO'], 0, -1) : $_SERVER['PATH_INFO'];
         }else{
+            // jika menggunakan REQUEST_URI
             $request_uri = str_replace(BASE_URL, '', $_SERVER['REQUEST_URI']);
             $path = (substr($request_uri, -1) == "/") ? 
                 substr($request_uri, 0, -1) : $request_uri;
@@ -16,9 +18,11 @@ class Dispatcher{
         
         $bits = explode("/", substr($path, 1));
         
+        //controller nya
         $parsed['controller'] = array_shift($bits);
         $parsed[] = $parsed['controller'];
         
+        //action nya
         $parsed['action'] = array_shift($bits);
         $parsed[] = $parsed['action'];
         
@@ -39,10 +43,12 @@ class Dispatcher{
         $this->parts = $parsed;
     }
     
+    //getter
     public function __get($key){
         return $this->parts[$key];
     }
     
+    //setter
     public function __set($key, $value){
         $this->parts[$key] = $value;
     }

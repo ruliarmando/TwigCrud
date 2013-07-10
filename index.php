@@ -9,12 +9,13 @@
 //ganti ini sesuai folder dimana aplikasi berada
 define('BASE_URL', '/test/TwigCrud/');
 
+//include core library
 require_once 'incs/twig_init.php';
 require_once 'incs/db.php';
 require_once 'incs/autoloader.php';
 require_once 'incs/dispatcher.php';
 
-$dispatcher = new Dispatcher;
+$dispatcher = new Dispatcher; // dispatcher nih
 $controller = $dispatcher->controller ? $dispatcher->controller : 'index';
 $action = $dispatcher->action ? $dispatcher->action : 'index';
 

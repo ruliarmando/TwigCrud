@@ -7,7 +7,7 @@
  */
 switch($action){
 	case 'index':        
-        render('index.twig', array(
+        render('index.html', array(
             'pageTitle'=>'Index Controller',
         ));
 		break;

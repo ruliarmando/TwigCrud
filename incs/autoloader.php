@@ -8,7 +8,7 @@
 
 class autoloader{
 
-    public static function modelautoloader($class){
+    public static function modelautoloader($class){ // autoload untuk model
         $path = __DIR__."models/{$class}.php";
         if(is_readable($path)) require_once $path;
     }

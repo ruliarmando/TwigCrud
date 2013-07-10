@@ -9,12 +9,12 @@
 switch($action){
     case 'index':
         $articles = ORM::for_table('article')->find_many();
-        render('article/index.twig', array('pageTitle'=>'Article-Index', 'articles'=>$articles));
+        render('article/index.html', array('pageTitle'=>'Article-Index', 'articles'=>$articles));
         break;
     case 'add':
         $article = ORM::for_table('article')->create();
         if(isset($_POST['Article'])){
             
         }
-        render('article/add.twig', array('pageTitle'=>'Article-Add', 'article'=>$article));
+        render('article/add.html', array('pageTitle'=>'Article-Add', 'article'=>$article));
 }

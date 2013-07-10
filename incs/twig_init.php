@@ -21,12 +21,12 @@ $twig = new Twig_Environment($loader, array(
     'auto_reload'=>true, // auto reload jika template dimodifikasi
 ));
 
-$twig->addGlobal('base_url', BASE_URL);
+$twig->addGlobal('base_url', BASE_URL); // nambahin BASE_URL agar bisa diakses di template
 
 $url_func = new Twig_SimpleFunction('url', function($route){
     return BASE_URL.$route;
 });
-$twig->addFunction($url_func);
+$twig->addFunction($url_func); // nambahin fungsi agar bisa diakses di template
 
 
 /**
